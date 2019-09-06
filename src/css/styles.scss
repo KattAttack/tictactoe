@@ -1,0 +1,319 @@
+body {
+	background-color: #588bb5;
+}
+
+.tictactoeGame {
+	display: flex;
+	flex-direction: column;
+
+	.santoriniImage {
+		position: relative;
+		z-index: 0;
+		border-radius: 200px;
+		width: 100%;
+		height: 98vh;
+	}
+
+	.tictactoeTitle {
+		display: flex;
+		position: absolute;
+		align-self: center;
+		justify-content: center;
+		font-size: 16vh;
+		font-family: "Mrs Sheppards", cursive;
+
+		-webkit-text-fill-color: #feffd1;
+		text-shadow: 1px -1px 5px #fff486, -1px 1px 7px #fff486;
+
+		// width: 62vh;
+	}
+
+	.gridContainer {
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		align-self: center;
+		justify-content: center;
+
+		margin-top: 25vh;
+		background-color: #feffd1;
+		border: 5px solid #e9e07d;
+		border-radius: 25px;
+		width: 44vh;
+		height: 44vh;
+
+		.row1 {
+			display: flex;
+			flex-direction: row;
+			position: relative;
+			z-index: 2;
+			width: 100%;
+			height: 33%;
+		}
+
+		.empty {
+			display: flex;
+			position: relative;
+			z-index: 3;
+			cursor: pointer;
+			border-radius: 20px;
+			border-left: 1px solid #e9e07d;
+			border-right: 1px solid #e9e07d;
+			width: 100%;
+			height: 100%;
+		}
+
+		.filled {
+			display: flex;
+			position: relative;
+			z-index: -3;
+			border-radius: 25px;
+			border-left: 1px solid #e9e07d;
+			border-right: 1px solid #e9e07d;
+			width: 100%;
+			height: 100%;
+			-webkit-animation-name: fadeIn;
+			animation-name: fadeIn;
+		}
+
+		@-webkit-keyframes fadeIn {
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+		@-webkit-keyframes zoomIn {
+			from {
+				opacity: 0;
+				-webkit-transform: scale3d(0.3, 0.3, 0.3);
+				transform: scale3d(0.3, 0.3, 0.3);
+			}
+
+			50% {
+				opacity: 1;
+			}
+		}
+
+		@keyframes zoomIn {
+			from {
+				opacity: 0;
+				-webkit-transform: scale3d(0.3, 0.3, 0.3);
+				transform: scale3d(0.3, 0.3, 0.3);
+			}
+
+			50% {
+				opacity: 1;
+			}
+		}
+
+		.row2 {
+			display: flex;
+			flex-direction: row;
+			position: relative;
+			z-index: 2;
+			border-top: solid #e9e07d;
+			border-bottom: solid #e9e07d;
+			width: 100%;
+			height: 33%;
+		}
+		.row3 {
+			display: flex;
+			flex-direction: row;
+			position: relative;
+			z-index: 2;
+			width: 100%;
+			height: 33%;
+		}
+	}
+	.gameMessageContainer {
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		align-self: center;
+		align-items: center;
+		justify-content: center;
+
+		font-size: 2.5vh;
+		margin-top: 87vh;
+		border: #fff486 5px solid;
+		border-radius: 55px;
+		background-color: #feffd1;
+		width: 58vh;
+		height: 10vh;
+
+		.gameMessage {
+			display: flex;
+			position: relative;
+			font-family: "Permanent Marker", cursive;
+			font-size: 4.5vh;
+			-webkit-text-fill-color: #387676;
+		}
+
+		.gameMessage1 {
+			display: flex;
+			position: relative;
+			font-family: "Permanent Marker", cursive;
+			font-size: 4.5vh;
+			-webkit-text-fill-color: #00bfff;
+		}
+
+		.gameMessage2 {
+			display: flex;
+			position: relative;
+			font-family: "Permanent Marker", cursive;
+			font-size: 4.5vh;
+			-webkit-text-fill-color: #1e90ff;
+		}
+	}
+
+	.newGameLoadAnimation {
+		display: flex;
+		align-self: center;
+		justify-content: center;
+		position: absolute;
+		margin-top: 74vh;
+		cursor: pointer;
+		font-family: "Patrick Hand", cursive;
+		font-size: 2.7vh;
+		-webkit-text-fill-color: #feffd1;
+		align-items: center;
+		border: #196260 3px solid;
+		background-color: #387676;
+		border-radius: 44px;
+		width: 16vh;
+		height: 6.5vh;
+		-webkit-animation-duration: 0.95s;
+		animation-duration: 0.95s;
+		-webkit-animation-name: bounceIn;
+		animation-name: bounceIn;
+	}
+
+	.newGame {
+		display: flex;
+		align-self: center;
+		justify-content: center;
+		position: absolute;
+		margin-top: 74vh;
+		cursor: pointer;
+		font-family: "Patrick Hand", cursive;
+		font-size: 2.7vh;
+		-webkit-text-fill-color: #feffd1;
+		align-items: center;
+		border: #196260 3px solid;
+		background-color: #387676;
+		border-radius: 44px;
+		width: 16vh;
+		height: 6.5vh;
+	}
+
+	.animation {
+		-webkit-animation-duration: 0.95s;
+		animation-duration: 0.95s;
+		-webkit-animation-name: bounceIn;
+		animation-name: bounceIn;
+	}
+
+	@-webkit-keyframes bounceIn {
+		from,
+		20%,
+		40%,
+		60%,
+		80%,
+		to {
+			-webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+			animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+		}
+
+		0% {
+			opacity: 0;
+			-webkit-transform: scale3d(0.3, 0.3, 0.3);
+			transform: scale3d(0.3, 0.3, 0.3);
+		}
+
+		20% {
+			-webkit-transform: scale3d(1.1, 1.1, 1.1);
+			transform: scale3d(1.1, 1.1, 1.1);
+		}
+
+		40% {
+			-webkit-transform: scale3d(0.9, 0.9, 0.9);
+			transform: scale3d(0.9, 0.9, 0.9);
+		}
+
+		60% {
+			opacity: 1;
+			-webkit-transform: scale3d(1.03, 1.03, 1.03);
+			transform: scale3d(1.03, 1.03, 1.03);
+		}
+
+		80% {
+			-webkit-transform: scale3d(0.97, 0.97, 0.97);
+			transform: scale3d(0.97, 0.97, 0.97);
+		}
+
+		to {
+			opacity: 1;
+			-webkit-transform: scale3d(1, 1, 1);
+			transform: scale3d(1, 1, 1);
+		}
+	}
+
+	@keyframes bounceIn {
+		from,
+		20%,
+		40%,
+		60%,
+		80%,
+		to {
+			-webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+			animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+		}
+
+		0% {
+			opacity: 0;
+			-webkit-transform: scale3d(0.3, 0.3, 0.3);
+			transform: scale3d(0.3, 0.3, 0.3);
+		}
+
+		20% {
+			-webkit-transform: scale3d(1.1, 1.1, 1.1);
+			transform: scale3d(1.1, 1.1, 1.1);
+		}
+
+		40% {
+			-webkit-transform: scale3d(0.9, 0.9, 0.9);
+			transform: scale3d(0.9, 0.9, 0.9);
+		}
+
+		60% {
+			opacity: 1;
+			-webkit-transform: scale3d(1.03, 1.03, 1.03);
+			transform: scale3d(1.03, 1.03, 1.03);
+		}
+
+		80% {
+			-webkit-transform: scale3d(0.97, 0.97, 0.97);
+			transform: scale3d(0.97, 0.97, 0.97);
+		}
+
+		to {
+			opacity: 1;
+			-webkit-transform: scale3d(1, 1, 1);
+			transform: scale3d(1, 1, 1);
+		}
+	}
+}
